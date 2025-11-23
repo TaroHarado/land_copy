@@ -1,0 +1,78 @@
+.marketsSection {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 25px;
+}
+
+.sectionTitle {
+  font-size: 20px;
+  font-weight: 700;
+  font-family: var(--font-inter);
+  color: var(--color-white-2);
+}
+
+.donutChartContainer {
+  position: relative;
+  width: 100%;
+  height: 250px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.donutTotal {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+
+  .donutTotalValue {
+    font-size: 17px;
+    font-weight: 400;
+    text-align: center;
+    font-family: var(--font-inter);
+    color: var(--color-white-2);
+  }
+}
+
+.marketsLegend {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.legendItem {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  .legendItemContent { 
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+}
+
+.legendCircle {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+}
+
+.legendName {
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--color-white-2);
+  font-family: var(--font-inter);
+}
+
+.legendCount {
+  font-size: 17px;
+  font-family: var(--font-inter);
+  color: var(--color-white-2);
+}

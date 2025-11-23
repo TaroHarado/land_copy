@@ -1,0 +1,17 @@
+services:
+  front:
+    image: front-front:latest
+    container_name: polyfront_frontend
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=production
+      - NEXT_TELEMETRY_DISABLED=1
+      - HOSTNAME=0.0.0.0
+    restart: unless-stopped
+    networks:
+      - polycopy_network
+
+networks:
+  polycopy_network:
+    external: true

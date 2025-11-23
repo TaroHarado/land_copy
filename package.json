@@ -1,0 +1,44 @@
+{
+  "name": "polycopy",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint"
+  },
+  "dependencies": {
+    "@tanstack/react-query": "^5.85.9",
+    "@wagmi/chains": "^1.8.0",
+    "axios": "^1.11.0",
+    "cookies-next": "^6.1.0",
+    "jsonwebtoken": "^9.0.2",
+    "lightweight-charts": "^5.0.9",
+    "next": "15.4.5",
+    "postcss": "^8.5.6",
+    "react": "19.1.0",
+    "react-dom": "19.1.0",
+    "react-hook-form": "^7.66.0",
+    "recharts": "^3.4.1",
+    "sass": "^1.92.1",
+    "scss": "^0.2.4",
+    "tailwind-merge": "^3.3.1",
+    "wagmi": "^2.18.2"
+  },
+  "devDependencies": {
+    "@svgr/webpack": "^8.1.0",
+    "@tailwindcss/postcss": "^4.1.16",
+    "@types/jsonwebtoken": "^9.0.10",
+    "@types/node": "^20.19.24",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "eslint": "^9",
+    "eslint-config-next": "15.4.5",
+    "prettier": "^3.6.2",
+    "prettier-plugin-tailwindcss": "^0.7.1",
+    "tailwindcss": "^4.1.16",
+    "typescript": "^5",
+    "viem": "^2.38.5"
+  }
+}

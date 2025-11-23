@@ -1,0 +1,118 @@
+name: Frontend CI/CD Pipeline
+
+on: 
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Check Docker access
+      uses: appleboy/ssh-action@master
+      with:
+        host: ${{ secrets.PROD_HOST }}
+        username: ${{ secrets.PROD_USERNAME }}
+        password: ${{ secrets.PROD_PASSWORD }}
+        port: ${{ secrets.PROD_PORT }}
+        script: |
+          if ! docker --version &>/dev/null; then
+            echo "ERROR: Deploy user cannot access Docker"
+            echo "Please ensure:"
+            echo "1. Docker is installed on the server"
+            echo "2. Deploy user is added to docker group: sudo usermod -aG docker deploy"
+            echo "3. Docker service is running: sudo systemctl start docker"
+            exit 1
+          fi
+          
+          echo "✅ Docker access verified for deploy user"
+          echo "Docker version: $(docker --version)"
+
+    - name: Deploy Frontend application
+      uses: appleboy/ssh-action@master
+      with:
+        host: ${{ secrets.PROD_HOST }}
+        username: ${{ secrets.PROD_USERNAME }}
+        password: ${{ secrets.PROD_PASSWORD }}
+        port: ${{ secrets.PROD_PORT }}
+        script: |
+          echo "Current working directory: $(pwd)"
+          echo "User: $(whoami)"
+          echo "Groups: $(groups)"
+
+        
+          # Переходим в директорию
+          cd /opt/polycopy/front || exit 1
+          echo "Changed to: $(pwd)"
+          
+          # Проверяем, пустая ли директория
+          if [ ! "$(ls -A)" ]; then
+            echo "Directory is empty, cloning repository..."
+            
+            if [ -z "${{ secrets.GPAT }}" ]; then
+              echo "ERROR: GPAT secret is not set!"
+              exit 1
+            fi
+            
+            if git clone https://${{ secrets.GPAT }}:x-oauth-basic@github.com/TaroHarado/polycopy-front.git .; then
+              echo "Clone successful"
+              git config credential.helper store
+              echo "https://${{ secrets.GPAT }}:x-oauth-basic@github.com" > ~/.git-credentials
+            else
+              echo "Clone failed"
+              exit 1
+            fi
+          # Проверяем, существует ли git репозиторий
+          elif [ -d ".git" ]; then
+            echo "Repository exists, pulling latest changes..."
+            
+            git config credential.helper store
+            echo "https://${{ secrets.GPAT }}:x-oauth-basic@github.com" > ~/.git-credentials
+            
+            git fetch origin
+            git reset --hard origin/main
+            git pull origin main
+            echo "Pull successful"
+          else
+            echo "Directory is not empty and not a git repository, cleaning up..."
+            rm -rf ./*
+            rm -rf ./.[!.]*
+            
+            echo "Cloning repository..."
+            
+            if [ -z "${{ secrets.GPAT }}" ]; then
+              echo "ERROR: GPAT secret is not set!"
+              exit 1
+            fi
+            
+            if git clone https://${{ secrets.GPAT }}:x-oauth-basic@github.com/TaroHarado/polycopy-front.git .; then
+              echo "Clone successful"
+              git config credential.helper store
+              echo "https://${{ secrets.GPAT }}:x-oauth-basic@github.com" > ~/.git-credentials
+            else
+              echo "Clone failed"
+              exit 1
+            fi
+          fi
+
+          # Включаем Docker BuildKit для оптимизации сборки и кеширования
+          export DOCKER_BUILDKIT=1
+          export COMPOSE_DOCKER_CLI_BUILD=1
+          
+          # Сборка с inline кешированием
+          echo "Building with Docker BuildKit inline cache..."
+          docker build \
+            --build-arg BUILDKIT_INLINE_CACHE=1 \
+            --cache-from front-front:latest \
+            --target production \
+            -t front-front:latest \
+            -f Dockerfile \
+            .
+          
+          # Запуск контейнеров
+          docker compose up -d
+          
+          # Очистка старых образов (опционально, экономит место)
+          echo "Cleaning up old images..."
+          docker image prune -f

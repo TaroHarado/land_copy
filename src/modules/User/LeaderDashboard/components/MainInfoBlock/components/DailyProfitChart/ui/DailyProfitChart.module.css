@@ -1,0 +1,8 @@
+.chartContainer {
+  width: 100%;
+  height: 40px;
+  display: flex;
+  align-items: flex-end;
+
+  max-width: 130px;
+}

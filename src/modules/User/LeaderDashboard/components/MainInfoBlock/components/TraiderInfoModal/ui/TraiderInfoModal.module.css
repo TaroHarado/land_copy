@@ -1,0 +1,17 @@
+.activeUser {
+  display: flex;
+  flex-direction: column;
+  width: 80vw;
+  height: calc(100vh - 10vh);
+  background-color: var(--color-black-3);
+  overflow: auto;
+  scrollbar-width: none;
+
+  .header {
+    border-bottom: 1px solid var(--color-grey-4);
+  }
+
+  .mainInfo {
+    padding: 18px 30px 30px;
+  }
+}

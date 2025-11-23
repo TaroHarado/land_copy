@@ -1,0 +1,52 @@
+.overlay {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: #000000bf;
+  z-index: var(--z-index-modal);
+  pointer-events: auto;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &.open {
+    opacity: 1;
+  }
+}
+
+.modalContent {
+  position: absolute;
+  pointer-events: auto;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+
+  .overlay.open & {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.modal_position_center {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  .overlay.open & {
+    transform: translate(-50%, -50%);
+  }
+}
+
+.modal_position_right {
+  top: 50%;
+  right: 0;
+  transform: translate(100%, -50%);
+  transition: transform 0.3s ease;
+
+  .overlay.open & {
+    transform: translate(0, -50%);
+  }
+}

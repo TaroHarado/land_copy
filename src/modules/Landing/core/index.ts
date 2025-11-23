@@ -1,0 +1,1 @@
+// Wallet connection removed - using simple form instead

@@ -1,0 +1,107 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.walletContainer {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  .wallet {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    max-width: 150px;
+  }
+
+  .walletIcons {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+}
+
+.likeIcon, .copyIcon {
+  fill: #8b9ba1;
+  transition: all 0.1s;
+  
+  &:hover {
+    transform: scale(1.1);
+  }
+}
+
+.pnlText {
+  font-weight: 700;
+  font-size: 15px;
+  font-family: var(--font-inter);
+}
+
+.pnlTextPositive {
+  color: var(--color-green-4);
+}
+
+.pnlTextNegative {
+  color: var(--color-pink-1);
+}
+
+.winrateText {
+  font-weight: 400;
+  font-size: 15px;
+  font-family: var(--font-inter);
+  color: var(--color-white-2);
+}
+
+.winrateText {
+  font-weight: 500;
+  font-family: var(--font-inter);
+  font-size: 15px;
+  color: var(--color-white-2);
+}
+
+.winrateContainer {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  .winrateText {
+    font-weight: 700;
+    font-size: 15px;
+    font-family: var(--font-inter);
+    color: var(--color-white-2);
+  }
+
+  .winrateTextWin {
+    color: var(--color-green-4);
+  }
+
+  .winrateTextLoss {
+    font-weight: 400;
+    color: var(--color-pink-1);
+  }
+}
+
+.avgCost {
+  font-weight: 700;
+  font-size: 15px;
+  font-family: var(--font-inter);
+  color: var(--color-white-2);
+}
+
+.copyButton {
+  display: flex;
+  align-items: start;
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--color-white-2);
+  font-family: var(--font-inter);
+  padding-left: 30px;
+  width: 100%;
+  height: 100%;
+
+  .copyButtonContent {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+}

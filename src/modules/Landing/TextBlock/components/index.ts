@@ -1,0 +1,1 @@
+// Components removed - no wallet connection needed

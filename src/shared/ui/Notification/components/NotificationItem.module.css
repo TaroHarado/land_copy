@@ -1,0 +1,80 @@
+.notification {
+  min-width: 300px;
+  max-width: 700px;
+  padding: 20px 25px;
+  border-radius: 10px;
+  pointer-events: auto;
+  opacity: 0;
+  transform: translateY(-20px) scale(0.95);
+  transition:
+    opacity 0.4s ease,
+    transform 0.4s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  border: 1px solid var(--color-grey-4);
+  background-color: var(--color-black-3);
+}
+
+.notification.visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+.notification.removing {
+  opacity: 0;
+  transform: translateY(-20px) scale(0.95);
+  transition:
+    opacity 0.3s ease,
+    transform 0.3s ease;
+}
+
+.content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  width: 100%;
+}
+
+.message {
+  flex: 1;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 1.4;
+  color: var(--color-white-2);
+  font-family: var(--font-inter);
+}
+
+.notificationMainContent { 
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.customContent {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.closeButton {
+  background: none;
+  border: none;
+  color: inherit;
+  font-size: 24px;
+  line-height: 1;
+  cursor: pointer;
+  padding: 0;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0.7;
+  transition: opacity 0.2s ease;
+  flex-shrink: 0;
+}
+
+.closeButton:hover {
+  opacity: 1;
+}

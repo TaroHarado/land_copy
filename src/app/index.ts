@@ -1,0 +1,1 @@
+export { MainProvider } from "./providers/MainProvider/ui/MainProvider";

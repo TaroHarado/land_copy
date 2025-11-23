@@ -1,0 +1,123 @@
+@import "tailwindcss";
+
+@import "./animations/animations.css";
+
+@theme {
+  --color-white: #ffffff;
+  --color-white-1: #fefefe;
+  --color-white-2: #fcfcfc;
+
+  --color-black-1: #171718;
+  --color-black-2: #05060a;
+  --color-black-3: #111214;
+  --color-black-4: #232428;
+  --color-black-5: #101012;
+  --color-black-6: #161618;
+  --color-black-7: #101012;
+
+  --color-grey: #8b8c8e;
+  --color-grey-1: #505154;
+  --color-grey-2: #bcbec1;
+  --color-black-4: #222429;
+  --color-grey-3: #28282a;
+  --color-grey-4: #232429;
+  --color-grey-5: #c3c4c3;
+  --color-grey-6: #cfcfcc;
+  --color-grey-7: #4f5557;
+  --color-grey-8: #52595a;
+  --color-grey-9: #636664;
+  --color-grey-10: #909494;
+  --color-grey-11: #7f858a;
+  --color-grey-12: #535658;
+  --color-grey-13: #55575a;
+  --color-grey-14: #c4c4c6;
+  --color-grey-15: #ACACAE;
+  --color-grey-16: #4E4F53;
+  --color-grey-17: #232329;
+  --color-grey-18: #87898B;
+
+  --color-blue: #24daff;
+  --color-blue-1: #00dffe;
+  --color-blue-2: #00dffe80;
+  --color-blue-3: #0c3743;
+  --color-blue-4: #0b313b;
+  --color-blue-5: #1cb6da;
+
+  --color-green: #0ebd66;
+  --color-green-1: #072822;
+  --color-green-2: #0f9066;
+  --color-green-3: #2ac193;
+  --color-green-4: #27a881;
+
+  --color-pink: #ff6b9d;
+  --color-pink-1: #a72d5a;
+
+  --color-darkBlue: #191a1e;
+
+  --gap-8: 30px;
+  --gap-3.5: 15px;
+
+  --font-onest: var(--font-onest);
+  --font-inter: var(--font-inter);
+
+  --text-xs: 10px;
+  --text-sm: 12px;
+  --text-base: 14px;
+  --text-lg: 15px;
+  --text-xl: 17px;
+  --text-2xl: 20px;
+  --text-3xl: 26px;
+  --text-4xl: 31px;
+  --text-5xl: 36px;
+  --text-6xl: 42px;
+  --text-7xl: 48px;
+  --text-8xl: 56px;
+  --text-9xl: 64px;
+
+  --z-index-global: 1000;
+  --z-index-modal: 1001;
+}
+
+html {
+  scrollbar-width: none;
+  height: 100%;
+}
+
+body {
+  width: 100%;
+  color: #000000;
+  background-color: var(--color-black-1);
+  font-family: var(--font-montserrat), var(--font-onest), sans-serif;
+  font-size: 1.6rem;
+  font-weight: 400;
+  line-height: 1.15;
+  scroll-behavior: smooth;
+}
+
+button {
+  cursor: pointer;
+  &:disabled {
+    cursor: default;
+  }
+}
+
+img {
+  pointer-events: none;
+  user-select: none;
+}
+
+input {
+  outline: none;
+}
+
+.toast-custom {
+  display: flex !important;
+  align-items: center !important;
+  gap: 12px !important;
+}
+
+/* Hide Next.js dev overlay */
+#__next-build-watcher,
+.__nextjs-portal {
+  display: none !important;
+}

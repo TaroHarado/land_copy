@@ -1,0 +1,81 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 18px 30px;
+
+  .mainInfo {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+
+    .mainInfoTitle {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--color-white-2);
+      font-family: var(--font-inter);
+    }
+
+    .addressInfo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+
+      .addressInfoText {
+        font-size: 20px;
+        font-weight: 400;
+        max-width: 300px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        color: var(--color-grey-9);
+        font-family: var(--font-inter);
+      }
+    }
+  }
+
+  .infoBlock {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+
+    .infoBlockIcons {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+
+      .icon {
+        width: 40px;
+        height: 40px;
+        padding: 8px;
+        border-radius: 10px;
+        transition: all 0.3s;
+
+        path {
+          stroke: var(--color-white);
+        }
+
+        &:hover {
+          background-color: var(--color-black-4);
+        }
+      }
+    }
+  }
+}
+
+
+.timeFilter {
+  font-weight: 400;
+  font-size: 20px;
+  font-family: var(--font-inter);
+  color: var(--color-white-2);
+  transition: all .3s;
+
+  &:hover { 
+    color: var(--color-blue);
+  }
+}
+
+.activeTimeFilter {
+  color: var(--color-blue);
+}

@@ -1,0 +1,30 @@
+.walletIcon {
+  stroke: var(--color-grey-10);
+
+  path {
+    stroke: var(--color-grey-10);
+  }
+
+  rect {
+    stroke: var(--color-grey-10);
+  }
+}
+
+@keyframes blink {
+  0%, 100% {
+    opacity: 1;
+    box-shadow: 0 0 8px rgba(14, 189, 102, 0.8);
+  }
+  50% {
+    opacity: 0.5;
+    box-shadow: 0 0 12px rgba(14, 189, 102, 1);
+  }
+}
+
+.statusIndicator {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: var(--color-green);
+  animation: blink 2s ease-in-out infinite;
+}

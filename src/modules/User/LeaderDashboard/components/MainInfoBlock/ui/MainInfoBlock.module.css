@@ -1,0 +1,14 @@
+.mainInfoBlock {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 20px 30px;
+  flex: 1;
+  min-height: 0;
+
+  .mainInfoBlockHeader {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+  }
+}

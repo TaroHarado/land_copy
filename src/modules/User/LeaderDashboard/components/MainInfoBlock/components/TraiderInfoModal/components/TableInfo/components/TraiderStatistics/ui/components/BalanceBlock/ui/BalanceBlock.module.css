@@ -1,0 +1,52 @@
+.balanceContainer {
+  border-right: 1px solid var(--color-black-4);
+  height: 100%;
+}
+
+.balanceSection {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  padding: 25px;
+}
+
+.balanceItems { 
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.balanceItem {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.sectionTitle {
+  font-size: 20px;
+  font-weight: 700;
+  font-family: var(--font-inter);
+  color: var(--color-white-2);
+}
+
+.balanceLabel {
+  font-size: 15px;
+  font-weight: 400;
+  font-family: var(--font-inter);
+  color: var(--color-grey-13);
+}
+
+.balanceValue {
+  font-size: 25px;
+  font-weight: 400;
+  font-family: var(--font-inter);
+  color: var(--color-grey-14);
+}
+
+.balanceValue.positive {
+  color: var(--color-green-3);
+}
+
+.balanceValue.negative {
+  color: var(--color-pink);
+}
