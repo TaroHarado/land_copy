@@ -2,7 +2,7 @@
 
 import copeIcon from "@/public/icons/copy.svg";
 import { useMeInfo } from "@/src/core/api/query/meInfo";
-import { AuthMainBlock } from "@/src/modules";
+import { AuthMainBlock } from "@/src/modules/Auth/AuthMainBlock/ui/AuthMainBlock";
 import { useCopyText } from "@/src/shared/hooks/useCopyText";
 import Image from "next/image";
 import { useState } from "react";

@@ -1,7 +1,7 @@
 "use client";
 
 import { useMeInfo } from "@/src/core/api/query/meInfo";
-import { AuthMainBlock } from "@/src/modules";
+import { AuthMainBlock } from "@/src/modules/Auth/AuthMainBlock/ui/AuthMainBlock";
 import { formatWallet } from "@/src/shared/functions/format/format-wallet";
 import { AUTH_ROUTES } from "@/src/shared/lib/routes/routes";
 import { useRouter } from "next/navigation";
