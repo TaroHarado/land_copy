@@ -6,7 +6,6 @@ import {
   BalanceBlock,
   Perfomance,
   PieInfoChart,
-  TradingViewBaselineChart,
 } from "./components";
 
 interface TraiderStatisticsProps {
@@ -63,7 +62,6 @@ export const TraiderStatistics = ({ activeUser }: TraiderStatisticsProps) => {
         winRate={winRate}
         availableBalance={availableBalance}
       />
-      <TradingViewBaselineChart dailyProfitData={activeUser.daily_profit_7d} />
       <Perfomance
         sevenDayUnrealizedPNL={sevenDayUnrealizedPNL}
         sevenDayRealizedPNL={sevenDayRealizedPNL}
