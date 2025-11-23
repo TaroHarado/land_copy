@@ -21,7 +21,6 @@ export const InfoBlock = () => {
           href="https://x.com/copytrade_gg"
           target="_blank"
           rel="noopener noreferrer"
-          className="hover:opacity-80 transition-all duration-300 hover-scale hover:rotate-12"
         >
           <Image 
             src={twitterIcon} 
